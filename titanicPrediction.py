@@ -30,4 +30,21 @@ X_train = titanic_train_data.drop("Survived", axis=1)
 Y_train = titanic_train_data["Survived"]
 X_test = titanic_test_data.drop("PassengerId", axis=1).copy()
 
+
+logistic_regression = LogisticRegression()
+sgdClassifier = SGDClassifier()
+svm = SVC()
+random_forest = RandomForestClassifier(n_estimators=100)
+
+logistic_regression.fit(X_train, Y_train)
+sgdClassifier.fit(X_train, Y_train)
+svm.fit(X_train, Y_train)
+random_forest.fit(X_train, Y_train)
+
+print("Printing Scores:")
+print("LogisticRegression: ", logistic_regression.score(X_train, Y_train))
+print("SGDClassifier: ", sgdClassifier.score(X_train, Y_train))
+print("SVM: ", svm.score(X_train, Y_train))
+print("RandomForestClassifier: ", random_forest.score(X_train, Y_train))
+
 input("Press Enter to continue...") #Just to not clear the screen immedialy
